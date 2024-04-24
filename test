@@ -1,0 +1,1038 @@
+2.To Design Flutter UI by including Common Widgets and 4.To include icon image and charts in flutter app
+main.dart
+import 'package:flutter/material.dart';
+import 'package:praticals/p3.dart';
+import 'package:praticals/p4.dart';
+import 'package:praticals/p5.dart';
+import 'package:praticals/p1.dart';
+import 'package:praticals/p2.dart';
+import 'package:praticals/p6.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: P1(),
+      routes: {
+      'p2': (context) => P2(),
+      'p3': (context) => P3(),
+      'p4': (context) => P4(),
+      'p5': (context) => P5(),
+        'p6': (context) => P6(),
+    });
+  }
+}
+
+p1.dart
+import 'package:flutter/material.dart';
+import 'p2.dart'; // Import your P2 page
+
+class P1 extends StatelessWidget {
+  // const P1({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    debugShowCheckedModeBanner: false;
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Cat App'),
+        backgroundColor: Colors.amberAccent,
+        elevation: 0,
+        actions: [
+          IconButton(
+            icon: Icon(Icons.account_circle),
+            onPressed: () {
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> P1()));
+            },
+          ),
+          IconButton(onPressed: (){}, icon: Icon(Icons.accessibility))
+        ],
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.all(20.0),
+              padding: EdgeInsets.all(12.0),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.black,
+                  width: 3,
+                ),
+                borderRadius: BorderRadius.circular(8),
+                color: Color.fromARGB(255, 247, 24, 24),
+              ),
+              child: Text(
+                "Sphynx cat",
+                style: TextStyle(
+                  color: Color.fromARGB(255, 19, 19, 18),
+                  fontSize: 20,
+                ),
+              ),
+            ),
+            Container(
+              child: Image.asset('assets/sphynx.jpg'),
+              alignment: Alignment.center,
+              margin: EdgeInsets.all(20.0),
+              padding: EdgeInsets.all(12.0),
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 20, right: 20, top: 8, bottom: 8),
+              padding: EdgeInsets.all(0.0),
+              child: Text(
+                "The sphynx is a medium-sized cat with a striking appearance, identified by her hairless, wrinkled skin and large ears. She has a sleek, muscular body that is dense and heavy for her size.",
+                textAlign: TextAlign.justify,
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.all(20.0),
+              padding: EdgeInsets.all(12.0),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.black,
+                  width: 3,
+                ),
+                borderRadius: BorderRadius.circular(8),
+                color: Colors.orange,
+              ),
+              child: Text(
+                "American Bobtail",
+                style: TextStyle(
+                  color: Color.fromARGB(255, 19, 19, 18),
+                  fontSize: 20,
+                ),
+              ),
+            ),
+            Container(
+              child: Image.asset('assets/american.jpeg'),
+              alignment: Alignment.center,
+              margin: EdgeInsets.all(20.0),
+              padding: EdgeInsets.all(12.0),
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 20, right: 20, top: 0, bottom: 8),
+              padding: EdgeInsets.all(0.0),
+              child: Text(
+                "The American Bobtail is an uncommon breed of domestic cat which was developed in the late 1960s. It is most notable for its stubby bobbed tail about one-third to one-half the length of a normal cat's tail.",
+                textAlign: TextAlign.justify,
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.all(20.0),
+              padding: EdgeInsets.all(12.0),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.black,
+                  width: 3,
+                ),
+                borderRadius: BorderRadius.circular(8),
+                color: Colors.lightBlue,
+              ),
+              child: Text(
+                "Bengal Cat",
+                style: TextStyle(
+                  color: Color.fromARGB(255, 19, 19, 18),
+                  fontSize: 20,
+                ),
+              ),
+            ),
+            Container(
+              child: Image.asset('assets/bengal.jpeg'),
+              alignment: Alignment.center,
+              margin: EdgeInsets.all(20.0),
+              padding: EdgeInsets.all(12.0),
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 20, right: 20, top: 0, bottom: 8),
+              padding: EdgeInsets.all(0.0),
+              child: Text(
+                "The Bengal cat is a domesticated cat breed created from a hybrid of the Asian leopard cat, with domestic cats, especially the spotted Egyptian Mau.",
+                textAlign: TextAlign.justify,
+              ),
+            ),
+            Container(
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'Page 1',
+                    style: TextStyle(fontSize: 24),
+                  ),
+                  SizedBox(height: 20),
+                  ElevatedButton(
+                    onPressed: () {
+                      // Navigate to P2
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context) => P2()),
+                      );
+                    },
+                    child: Text('Go to Page 2'),
+                  ),
+                ],
+              ),
+            )// Removed the extra comma here
+          ], // Removed extra closing bracket
+        ),
+      ),
+    );
+  }
+}
+*********************************************************************************************************************************************************************************************************************************
+
+3. To design layout of flutter app using layout widget 
+main.dart
+import 'package:flutter/material.dart';
+import 'package:praticals/p3.dart';
+import 'package:praticals/p4.dart';
+import 'package:praticals/p5.dart';
+import 'package:praticals/p1.dart';
+import 'package:praticals/p2.dart';
+import 'package:praticals/p6.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: P1(),
+      routes: {
+      'p2': (context) => P2(),
+      'p3': (context) => P3(),
+      'p4': (context) => P4(),
+      'p5': (context) => P5(),
+        'p6': (context) => P6(),
+    });
+  }
+}
+
+p2.dart
+import 'package:flutter/material.dart';
+import 'package:praticals/p3.dart';
+
+class P2 extends StatelessWidget {
+  const P2({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Cat App'),
+        backgroundColor: Colors.amberAccent,
+        elevation: 4.0,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.all(20.0),
+              padding: EdgeInsets.all(12.0),
+              decoration: BoxDecoration(
+                border: Border.all(
+                  color: Colors.black,
+                  width: 3,
+                ),
+                borderRadius: BorderRadius.circular(8),
+                color: Color.fromARGB(255, 247, 243, 24),
+              ),
+              child: Text(
+                "Cats",
+                style: TextStyle(
+                  color: Color.fromARGB(255, 19, 19, 18),
+                  fontSize: 20,
+                ),
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+              padding: EdgeInsets.all(0.0),
+              child: Text(
+                "Cats have very sweet features. It has two beautiful eyes, adorably tiny paws, sharp claws, and two perky ears which are very sensitive to sounds. It has a tiny body covered with smooth fur and it has a furry tail as well. Cats have an adorable face with a tiny nose, a big mouth and a few whiskers under its nose.",
+                textAlign: TextAlign.justify,
+              ),
+            ),
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+              padding: EdgeInsets.all(0.0),
+              child: Text(
+                "Some Examples of cats are:",
+                textAlign: TextAlign.justify,
+              ),
+            ),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: DataTable(
+                columns: [
+                  DataColumn(
+                    label: Text(
+                      'Sr NO.',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  DataColumn(
+                    label: Text(
+                      'Name',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                  DataColumn(
+                    label: Text(
+                      'Show Info',
+                      style: TextStyle(
+                        fontSize: 18,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
+                rows: [
+                  DataRow(cells: [
+                    DataCell(Text('1')),
+                    DataCell(Text('Sphynx cat')),
+                    DataCell(TextButton(
+                      child: const Text(
+                        'View',
+                        style: TextStyle(color: Colors.indigo),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CatDetailsPage(
+                              catName: 'Sphynx cat',
+                              catInfo: 'Details about Sphynx cat go here.',
+                            ),
+                          ),
+                        );
+                      },
+                    )),
+                  ]),
+                  DataRow(cells: [
+                    DataCell(Text('2')),
+                    DataCell(Text('American Bobtail')),
+                    DataCell(TextButton(
+                      child: const Text(
+                        'View',
+                        style: TextStyle(color: Colors.indigo),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CatDetailsPage(
+                              catName: 'American Bobtail',
+                              catInfo: 'Details about American Bobtail go here.',
+                            ),
+                          ),
+                        );
+                      },
+                    )),
+                  ]),
+                  DataRow(cells: [
+                    DataCell(Text('3')),
+                    DataCell(Text('Bengal Cat')),
+                    DataCell(TextButton(
+                      child: const Text(
+                        'View',
+                        style: TextStyle(color: Colors.indigo),
+                      ),
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                            builder: (context) => CatDetailsPage(
+                              catName: 'Bengal Cat',
+                              catInfo: 'Details about Bengal Cat go here.',
+                            ),
+                          ),
+                        );
+                      },
+                    )),
+                  ]),
+                ],
+              ),
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'Page 2',
+                  style: TextStyle(fontSize: 24),
+                ),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    // Navigate to P1
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => P3()),
+                    );
+                  },
+                  child: Text('Go to Page 3'),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class CatDetailsPage extends StatelessWidget {
+  final String catName;
+  final String catInfo;
+
+  CatDetailsPage({
+    required this.catName,
+    required this.catInfo,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(catName),
+      ),
+      body: Padding(
+        padding: const EdgeInsets.all(16.0),
+        child: Text(catInfo),
+      ),
+    );
+  }
+}
+******************************************************************************************************************************************************************************************************************************
+5. To design layout of flutter app using layout widget
+main.dart
+import 'package:flutter/material.dart';
+import 'package:praticals/p3.dart';
+import 'package:praticals/p4.dart';
+import 'package:praticals/p5.dart';
+import 'package:praticals/p1.dart';
+import 'package:praticals/p2.dart';
+import 'package:praticals/p6.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: P1(),
+      routes: {
+      'p2': (context) => P2(),
+      'p3': (context) => P3(),
+      'p4': (context) => P4(),
+      'p5': (context) => P5(),
+        'p6': (context) => P6(),
+    });
+  }
+}
+
+p3.dart
+import 'package:flutter/material.dart';
+import 'package:praticals/p4.dart';
+
+class P3 extends StatefulWidget {
+  const P3({Key? key}) : super(key: key);
+
+  @override
+  State<P3> createState() => _P3State();
+}
+
+class _P3State extends State<P3> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Cat App'),
+        backgroundColor: Colors.amberAccent,
+        elevation: 4.0,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(
+              height: 100.0,
+              width: 100.0,
+              color: Colors.deepOrangeAccent,
+            ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'Page 3',
+                  style: TextStyle(fontSize: 24),
+                ),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    // Navigate to P4
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => P4()),
+                    );
+                  },
+                  child: Text('Go to Page 4'),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+p4.dart
+import 'package:flutter/material.dart';
+import 'package:praticals/p5.dart';
+
+class P4 extends StatefulWidget {
+  const P4({Key? key}) : super(key: key);
+
+  @override
+  State<P4> createState() => _P4State();
+}
+
+class _P4State extends State<P4> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Cat App'),
+        backgroundColor: Colors.amberAccent,
+        elevation: 4.0,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            _buildImageColumn(),
+            Text('Page 4',
+              style: TextStyle(fontSize: 24),),
+            // SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                // Navigate to P3
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => P5()),
+                );
+              },
+              child: Text('Go to Page 5'),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildImageColumn() {
+    return Container(
+      decoration: BoxDecoration(
+        color: Colors.black12,
+      ),
+      child: Column(
+        children: [
+          Container(
+            height: 100.0,
+            width: 50.0,
+            color: Colors.red,
+          ),
+          Container(
+            height: 100.0,
+            width: 50.0,
+            color: Colors.yellow,
+          ),
+          SizedBox(height:20),
+        ],
+      ),
+    );
+  }
+}
+p5.dart
+import 'package:flutter/material.dart';
+import 'package:praticals/p6.dart';
+
+class P5 extends StatefulWidget {
+  const P5({Key? key}) : super(key: key);
+
+  @override
+  State<P5> createState() => _P5State();
+}
+
+class _P5State extends State<P5> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Cat App'),
+        backgroundColor: Colors.amberAccent,
+        elevation: 4.0,
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'Page 5',
+            style: TextStyle(fontSize: 24),
+          ),
+          SizedBox(height: 20),
+          ElevatedButton(
+            onPressed: () {
+              // Navigate to P6
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => P6()),
+              );
+            },
+            child: Text('Go to Page 6'),
+          ),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: _buildGrid(),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Method returning Grid Widget
+  Widget _buildGrid() {
+    return GridView.extent(
+      maxCrossAxisExtent: 150,
+      padding: const EdgeInsets.all(4),
+      mainAxisSpacing: 4,
+      crossAxisSpacing: 4,
+      children: _buildGridTileList(10),
+    );
+  }
+
+  List<Container> _buildGridTileList(int count) {
+    return List.generate(
+      count,
+          (i) => Container(
+        width: 100,
+        height: 100,
+        color: Colors.deepOrangeAccent,
+      ),
+    );
+  }
+}
+p6.dart
+import 'package:flutter/material.dart';
+import 'package:praticals/p7.dart';
+
+class P6 extends StatelessWidget {
+  const P6({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Cat App'),
+        backgroundColor: Colors.amberAccent,
+        elevation: 4.0,
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            'Page 6',
+            style: TextStyle(fontSize: 24),
+          ),
+          SizedBox(height: 20), // Added SizedBox for spacing
+          Expanded(
+            child: ListView(
+              children: [
+                name('James', 'Thomas'),
+                name('Ajay', 'Kumar'),
+                name('Arun', 'Das'),
+                name('Roxie', 'St'),
+                name('Stanlee', 'Jr'),
+                name('AMC', 'Hales'),
+                // Divider(),
+                name('Monty', 'Chopra'),
+                name('Emmy', 'Ave'),
+                name('Chaitanya', 'Kumar'),
+                name('Rio', 'St'),
+              ],
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {
+              // Navigate to P5
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => P7()),
+              );
+            },
+            child: Text('Go to Page 7'),
+          ),
+        ],
+      ),
+    );
+  }
+
+  // Function to generate ListTile
+  Widget name(String firstName, String lastName) {
+    return ListTile(
+      title: Text(
+        firstName,
+        style: TextStyle(
+          fontWeight: FontWeight.w500,
+          fontSize: 20,
+        ),
+      ),
+      subtitle: Text(lastName),
+      leading: Icon(
+        Icons.arrow_back_ios,
+        color: Colors.deepOrangeAccent,
+      ),
+    );
+  }
+}
+p7.dart
+import 'package:flutter/material.dart';
+import 'package:praticals/p8.dart';
+
+class P7 extends StatefulWidget {
+  const P7({Key? key}) : super(key: key);
+
+  @override
+  State<P7> createState() => _P7State();
+}
+
+class _P7State extends State<P7> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Cat App'),
+        backgroundColor: Colors.amberAccent,
+        elevation: 4.0,
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Container(width: 150, height: 150,
+              decoration: BoxDecoration(
+                color: Colors.yellowAccent,
+                shape: BoxShape.circle,
+              ),
+              child: Center(
+                child: Text(
+                  ' Sarthak Suresh Tambde ',
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.deepOrangeAccent,
+                  ),
+                ),
+              ),
+            ),
+            SizedBox(height: 20), // Add space between the circle and the button
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Page 7',
+                  style: TextStyle(fontSize: 24),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    // Navigate to P8 (assuming it's the same page)
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => P8()),
+                    );
+                  },
+                  child: Text('Go to Page 8'),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+p8.dart
+import 'package:flutter/material.dart';
+import 'package:praticals/p9.dart';
+
+class P8 extends StatefulWidget {
+  const P8({Key? key}) : super(key: key);
+
+  @override
+  State<P8> createState() => _P8State();
+}
+
+class _P8State extends State<P8> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Cat App'),
+        backgroundColor: Colors.amberAccent,
+        elevation: 4.0,
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Center(
+            child: SizedBox(
+              height: 210,
+              child: Card(
+                elevation: 20,
+                child: Column(
+                  children: [
+                    ListTile(
+                      title: Text(
+                        'Cat App',
+                        style: TextStyle(fontWeight: FontWeight.w500),
+                      ),
+                      subtitle: Text('Information about the Cats around the World'),
+                      leading: Icon(
+                        Icons.adb_rounded,
+                        color: Colors.deepOrangeAccent,
+                      ),
+                    ),
+                    Divider(),
+                    ListTile(
+                      title: Text(
+                        'Maharashtra, India',
+                        style: TextStyle(fontWeight: FontWeight.w500),
+                      ),
+                      leading: Icon(
+                        Icons.contact_phone,
+                        color: Colors.deepOrangeAccent,
+                      ),
+                    ),
+                    ListTile(
+                      title: Text('sarthaktambde@contribute.com'),
+                      leading: Icon(
+                        Icons.contact_mail,
+                        color: Colors.deepOrangeAccent,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ),
+          SizedBox(height: 20), // Add space between the circle and the button
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Page 8',
+                  style: TextStyle(fontSize: 24),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    // Navigate to P8 (assuming it's the same page)
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => P9()),
+                    );
+                  },
+                  child: Text('Go to Page 9'),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+p9.dart
+import 'package:flutter/material.dart';
+import 'package:praticals/p1.dart';
+
+class P9 extends StatefulWidget {
+  const P9({Key? key}) : super(key: key);
+
+  @override
+  State<P9> createState() => _P9State();
+}
+
+class _P9State extends State<P9> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Cat App'),
+        backgroundColor: Colors.amberAccent,
+        elevation: 4.0,
+      ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Container(
+            padding: EdgeInsets.symmetric(vertical: 20.0),
+            child: ListTile(
+              title: Text(
+                'Cat App',
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+              subtitle: Text('Information about the Cats around the World'),
+              leading: Icon(
+                Icons.adb_rounded,
+                color: Colors.deepOrangeAccent,
+              ),
+            ),
+          ),
+          SizedBox(height: 20), // Add space between the ListTile and the button
+          Padding(
+            padding: const EdgeInsets.symmetric(vertical: 20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  'Page 9',
+                  style: TextStyle(fontSize: 24),
+                ),
+                ElevatedButton(
+                  onPressed: () {
+                    // Navigate to P1 (assuming it's the same page)
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => P1()),
+                    );
+                  },
+                  child: Text('Go to Page 1'),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
+*********************************************************************************************************************************************************************************************************************************
+6. To apply navigation, routin and gesture in flutter app
+main.dart
+import 'package:flutter/material.dart';
+import 'package:praticals/p3.dart';
+import 'package:praticals/p4.dart';
+import 'package:praticals/p5.dart';
+import 'package:praticals/p1.dart';
+import 'package:praticals/p2.dart';
+import 'package:praticals/p6.dart';
+
+void main() {
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      debugShowCheckedModeBanner: false,
+      home: P1(),
+      routes: {
+      'p2': (context) => P2(),
+      'p3': (context) => P3(),
+      'p4': (context) => P4(),
+      'p5': (context) => P5(),
+        'p6': (context) => P6(),
+    });
+  }
+}
+
+p3.dart
+import 'package:flutter/material.dart';
+import 'package:praticals/p4.dart';
+
+class P3 extends StatefulWidget {
+  const P3({Key? key}) : super(key: key);
+
+  @override
+  State<P3> createState() => _P3State();
+}
+
+class _P3State extends State<P3> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Cat App'),
+        backgroundColor: Colors.amberAccent,
+        elevation: 4.0,
+      ),
+      body: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            // Container(
+            //   height: 100.0,
+            //   width: 100.0,
+            //   color: Colors.deepOrangeAccent,
+            // ),
+            Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  'Page 3',
+                  style: TextStyle(fontSize: 24),
+                ),
+                SizedBox(height: 20),
+                ElevatedButton(
+                  onPressed: () {
+                    // Navigate to P4
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => P4()),
+                    );
+                  },
+                  child: Text('Go to Page 4'),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+
+
