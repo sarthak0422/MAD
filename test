@@ -1034,5 +1034,22 @@ class _P3State extends State<P3> {
   }
 }
 
+11.Pwa to github
+Step3: then in visual studio code inside terminal do following
 
+1) git init
+
+2) git add .
+
+3) git commit -m "completed"
+
+4) git remote add origin https://pooja8428.github.io/exp11/
+
+5) git push -u origin master
+
+step4: once all git oprations are done then move back to your repository in
+
+github go into setting then goto pages section on left side
+
+step5: select there master on place of none and save it
 
